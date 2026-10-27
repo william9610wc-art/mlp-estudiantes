@@ -85,7 +85,6 @@ if enviar:
 
     try:
         entrada = pd.DataFrame([datos]).reindex(columns=variables)
-        entrada_imputada = imputador.transform(entrada)
         entrada_escalada = escalador.transform(entrada_imputada)
         salida = modelo.predict(entrada_escalada, verbose=0)
         probabilidad = float(np.asarray(salida).reshape(-1)[0])
